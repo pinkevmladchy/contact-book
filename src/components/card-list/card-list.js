@@ -3,13 +3,13 @@ import Card from '../card/card'
 
 export default class CardList extends Component {
     render() {
-        const { data } = this.props;
+        const { data, onDblDelete, onAdd} = this.props;
         const cards = data.map(item => {
-            return <Card key={item.id} info={item} />;
+            return <Card key={item.id} info={item} onDblDelete={(id) => onDblDelete(item.id)}/>;
         })
         return (
             <>
-               {cards} 
+                {cards}
             </>
         )
     }
